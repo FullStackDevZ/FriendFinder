@@ -6,21 +6,23 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./friend-finder-style.css">
+  
 
 </head>
 <body>
     <div class="container">
 		<div id="header">
-			<h1>Survey Questions</h1>
+            <h1>Survey Says!</h1>
+            <br>
 		</div>
 
 		<form>
-		  <div class="row">
-		    <div class="twelve columns">
+		  <div>
+		    <div>
               <label for="name">Name</label>
 		      <input class="u-full-width" type="text" id="name">
-
-              <br>
+              <br><br>
               <label for="image">Link to an image of you: </label>
               <input class="u-full-width" type="text" id="image">
               <br>
@@ -38,7 +40,7 @@
               <br>
               <br>
 
-              <label for="q2">2. Michael Jordan is beter than Kobe bryant.</label>
+              <label for="q2">2. Michael Jordan is better than Kobe Bryant.</label>
               <br>
 		      <select class="u-half-width" id="q2">
 		        <option value="1">1 (Strongly Disagree)</option>
@@ -141,13 +143,11 @@
 		        <option value="4">4 </option>
 		        <option value="5">5 (Strongly Agree)</option>
               </select>
-              <br> <br>
-
-		      <div class="twelve columns">
-		      <br>
-		      <input class="button-primary" type="submit" id="submit">
-		      </div>
-
+              <br><br>
+              <input class="button-primary" type="submit" id="submit" value="SUBMIT">
+              <br><br>
+            </div>
+            
 		</form>
 		  </div>
 
@@ -173,16 +173,6 @@
     </div>
   </div>
 
-<!-- border divs-->
-<div id="top">
-</div>
-<div id="bottom">
-</div>
-<div id="left">
-</div>
-<div id="right">
-</div>
-
 </body>
 
   <script type="text/javascript">
@@ -200,7 +190,7 @@
     // Capture the form inputs
     $("#submit").on("click", function() {
       // Form validation
-      function validateForm() {
+      function checkAnswers() {
         var isValid = true;
         $(".form-control").each(function() {
           if ($(this).val() === "") {
@@ -215,7 +205,7 @@
         return isValid;
       }
       // If all required fields are filled
-      if (validateForm()) {
+      if (checkAnswers()) {
         // Create an object for the user"s data
         var userData = {
           name: $("#name").val(),

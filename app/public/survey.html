@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="container">
+		<div id="header">
+			<h1>Survey Questions</h1>
+		</div>
+
+		<form>
+		  <div class="row">
+		    <div class="twelve columns">
+              <label for="name">Name</label>
+		      <input class="u-full-width" type="text" id="name">
+
+              <br>
+              <label for="image">Link to an image of you: </label>
+              <input class="u-full-width" type="text" id="image">
+              <br>
+              <br>
+
+              <label for="q1">1. It bothers you when others listen to music too loudly on their headphones.</label>
+              <br>
+		      <select class="u-half-width" id="q1">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q2">2. Michael Jordan is beter than Kobe bryant.</label>
+              <br>
+		      <select class="u-half-width" id="q2">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q3">3. The moon is made of cheese. </label>
+              <br>
+		      <select class="u-half-width" id="q3">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q4">4. The world is flat.</label>
+              <br>
+		      <select class="u-half-width" id="q4">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 (Somewhat Disagree</option>
+		        <option value="3">3 (Meh)</option>
+		        <option value="4">4 (Somewhat Agree</option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q5">5. Kramer is the most likeable character on Seinfeld.</label>
+              <br>
+		      <select class="u-half-width" id="q5">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 </option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q6">6. The 90's were the last great decade.</label>
+              <br>
+		      <select class="u-half-width" id="q6">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q7">7. Everything tastes like chicken. </label>
+              <br>
+		      <select class="u-half-width" id="q7">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+		      </select>
+              <br><br>
+
+		      <label for="q8">8. Dark Chocolate > Milk Chocolate </label> <br>
+		      <select class="u-half-width" id="q8"> <br>
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br>
+              <br>
+
+              <label for="q9">9. The #13 is lucky.</label>
+              <br>
+		      <select class="u-half-width" id="q9">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+		      </select>
+              <br>
+              <br>
+
+              <label for="q10">10. Black Cats bring good luck!</label>
+              <br>
+		      <select class="u-half-width" id="q10">
+		        <option value="1">1 (Strongly Disagree)</option>
+		        <option value="2">2 </option>
+		        <option value="3">3 </option>
+		        <option value="4">4 </option>
+		        <option value="5">5 (Strongly Agree)</option>
+              </select>
+              <br> <br>
+
+		      <div class="twelve columns">
+		      <br>
+		      <input class="button-primary" type="submit" id="submit">
+		      </div>
+
+		</form>
+		  </div>
+
+	</div>
+
+  <div id="resultsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>Best Fit</h2>
+        </div>
+        <div class="modal-body">
+          <h3 id="matchName"></h3>
+          <img id="matchingPic" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- border divs-->
+<div id="top">
+</div>
+<div id="bottom">
+</div>
+<div id="left">
+</div>
+<div id="right">
+</div>
+
+</body>
+
+  <script type="text/javascript">
+  // Chosen CSS
+    var config = {
+      ".chosen-select": {},
+      ".chosen-select-deselect": { allow_single_deselect: true },
+      ".chosen-select-no-single": { disable_search_threshold: 10 },
+      ".chosen-select-no-results": { no_results_text: "Oops, nothing found!" },
+      ".chosen-select-width": { width: "95%" }
+    };
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+    // Capture the form inputs
+    $("#submit").on("click", function() {
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        $(".chosen-select").each(function() {
+          if ($(this).val() === "") {
+            isValid = false;
+          }
+        });
+        return isValid;
+      }
+      // If all required fields are filled
+      if (validateForm()) {
+        // Create an object for the user"s data
+        var userData = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        };
+
+        var currentURL = window.location.origin;
+        $.post(currentURL + "/api/friends", userData, function(data) {
+
+            $("#matchName").text(data.name);
+          $("#matchingPic").attr("src", data.photo);
+          // Show the modal with the best match
+          $("#resultsModal").modal("toggle");
+        });
+      }
+      else {
+        alert("Please fill out all fields before submitting!");
+      }
+      return false;
+    });
+  </script>
+
+</html>
+
+
+</body>
+</html>

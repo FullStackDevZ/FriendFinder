@@ -13,7 +13,7 @@ module.exports = function (app) {
     var match = {
       name: "",
       photo: "",
-      difference: 500
+      difference: 20
     };
 
     for (var i = 0; i < friends.length; i++) {

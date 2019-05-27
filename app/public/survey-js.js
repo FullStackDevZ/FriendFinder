@@ -1,17 +1,13 @@
-<script src="https://code.jquery.com/jquery.js"></script>
-
 var config = {
   '.chosen-select': {},
   '.chosen-select-deselect': { allow_single_deselect: true },
   '.chosen-select-no-single': { disable_search_threshold: 10 },
-  '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
-  '.chosen-select-width': { width: "95%" }
+  '.chosen-select-no-results': { no_results_text: 'No data found.' },
+  '.chosen-select-width': { width: "80%" }
 }
 for (var selector in config) {
   $(selector).chosen(config[selector]);
 }
-$(".chosen-select").chosen('destroy');
-$(".chosen-select").chosen({ width: "482px" });
 
 for (var selector in config) {
   $(selector).chosen(config[selector]);
@@ -20,23 +16,23 @@ for (var selector in config) {
 $("#submit").on("click", function () {
   // Checks user inputs
   function checkAnswers() {
-    var isValid = true;
+    var correct = true;
     $(".form-control").each(function () {
       if ($(this).val() === "") {
-        isValid = false;
+        correct = false;
       }
     });
     $(".chosen-select").each(function () {
       if ($(this).val() === "") {
-        isValid = false;
+        correct = false;
       }
     });
-    return isValid;
+    return correct;
   }
   // If all required fields are filled
-  if (validateForm()) {
+  if (checkAnswers()) {
     // Create an object for the user"s data
-    var userData = {
+    var findFriend = {
       name: $("#name").val(),
       photo: $("#photo").val(),
       scores: [
@@ -52,10 +48,10 @@ $("#submit").on("click", function () {
         $("#q10").val()
       ]
     };
-    // Grab the URL of the website
+    // Get URL of the website
     var currentURL = window.location.origin;
     // AJAX post the data to the friends API.
-    $.post(currentURL + "/api/friends", userData, function(data) {
+    $.post(currentURL + "/api/friends", findFriend, function(data) {
       // Grab the result from the AJAX post so that the best match's name and photo are displayed.
       $("#matchName").text(data.name);
       $("#matchImg").attr("src", data.photo);
@@ -64,7 +60,7 @@ $("#submit").on("click", function () {
     });
   }
   else {
-    alert("Please fill out all fields before submitting!");
+    alert("Please fill out everything first.");
   }
   return false;
 });

@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Friend Finder</title>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="/scripts/chosen.jquery.js" type="text/javascript"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./friend-finder-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
   
 
 </head>
@@ -30,7 +32,7 @@
 
               <label for="q1">1. It bothers you when others listen to music too loudly on their headphones.</label>
               <br>
-		      <select id="q1">
+		      <select class="chosen-select" id="q1">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -42,7 +44,7 @@
 
               <label for="q2">2. Michael Jordan is better than Kobe Bryant.</label>
               <br>
-		      <select id="q2">
+		      <select class="chosen-select"  id="q2">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -54,7 +56,7 @@
 
               <label for="q3">3. The moon is made of cheese. </label>
               <br>
-		      <select id="q3">
+		      <select class="chosen-select" id="q3">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -66,7 +68,7 @@
 
               <label for="q4">4. The world is flat.</label>
               <br>
-		      <select id="q4">
+		      <select class="chosen-select" id="q4">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 (Somewhat Disagree</option>
 		        <option value="3">3 (Meh)</option>
@@ -78,7 +80,7 @@
 
               <label for="q5">5. Kramer is the most likeable character on Seinfeld.</label>
               <br>
-		      <select id="q5">
+		      <select class="chosen-select" id="q5">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -90,7 +92,7 @@
 
               <label for="q6">6. The 90's were the last great decade.</label>
               <br>
-		      <select id="q6">
+		      <select class="chosen-select" id="q6">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -102,7 +104,7 @@
 
               <label for="q7">7. Everything tastes like chicken. </label>
               <br>
-		      <select id="q7">
+		      <select class="chosen-select" id="q7">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -112,7 +114,7 @@
               <br><br>
 
 		      <label for="q8">8. Dark Chocolate > Milk Chocolate </label> <br>
-		      <select id="q8"> <br>
+		      <select  class="chosen-select" id="q8"> <br>
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -124,7 +126,7 @@
 
               <label for="q9">9. The #13 is lucky.</label>
               <br>
-		      <select id="q9">
+		      <select class="chosen-select" id="q9">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -136,7 +138,7 @@
 
               <label for="q10">10. Black Cats bring good luck!</label>
               <br>
-		      <select id="q10">
+		      <select class="chosen-select" id="q10">
 		        <option value="1">1 (Strongly Disagree)</option>
 		        <option value="2">2 </option>
 		        <option value="3">3 </option>
@@ -163,7 +165,7 @@
         </div>
         <div class="modal-body">
           <h3 id="matchName"></h3>
-          <img id="matchingPic" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+          <img id="matchingPic" src="https://media.giphy.com/media/l4Ki2UBDUhRjvmC7m/giphy.gif" alt="">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -172,9 +174,79 @@
 
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<script src="../public/survey-js.js"></script>
+  
+  <script type="text/javascript">
+    
+var config = {
+  '.chosen-select': {},
+  '.chosen-select-deselect': { allow_single_deselect: true },
+  '.chosen-select-no-single': { disable_search_threshold: 10 },
+  '.chosen-select-no-results': { no_results_text: 'Cannot find it!' },
+  '.chosen-select-width': { width: "95%" }
+}
+for (var selector in config) {
+  $(selector).chosen(config[selector]);
+}
+$(".chosen-select").chosen('destroy');
+$(".chosen-select").chosen({ width: "482px" });
+
+for (var selector in config) {
+  $(selector).chosen(config[selector]);
+}
+// What occurs when submit is clicked
+$("#submit").on("click", function () {
+  // Checks user inputs
+  function checkAnswers() {
+    var isValid = true;
+    $(".form-control").each(function () {
+      if ($(this).val() === "") {
+        isValid = false;
+      }
+    });
+    $(".chosen-select").each(function () {
+      if ($(this).val() === "") {
+        isValid = false;
+      }
+    });
+    return isValid;
+  }
+  // If all required fields are filled
+  if (validateForm()) {
+    // Create an object for the user"s data
+    var userData = {
+      name: $("#name").val(),
+      photo: $("#photo").val(),
+      scores: [
+        $("#q1").val(),
+        $("#q2").val(),
+        $("#q3").val(),
+        $("#q4").val(),
+        $("#q5").val(),
+        $("#q6").val(),
+        $("#q7").val(),
+        $("#q8").val(),
+        $("#q9").val(),
+        $("#q10").val()
+      ]
+    };
+    // Grab the URL of the website
+    var currentURL = window.location.origin;
+    // AJAX post the data to the friends API.
+    $.post(currentURL + "/api/friends", userData, function(data) {
+      // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+      $("#matchName").text(data.name);
+      $("#matchImg").attr("src", data.photo);
+      // Show the modal with the best match
+      $("#resultsModal").modal("toggle");
+    });
+  }
+  else {
+    alert("Please fill out all fields before submitting!");
+  }
+  return false;
+});
+
+</script>
 
 </body>
 </html>
